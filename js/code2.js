@@ -115,8 +115,10 @@ function createMenu(menuData) {
 
     for (var i = 0; i < menuData.length; i++) {
         var status = '';
+		var submenu = '';
         if (menuData[i].status != 1) status = 'disabled';
-        dataForContextMenu += '<li class="menu-item ' + status + '"> <button type="button" class="menu-btn"> <span class="menu-text">' + menuData[i].title + '</span> </button>';
+		if (menuData[i].submenu != 0) submenu = 'submenu';
+        dataForContextMenu += '<li class="menu-item ' + submenu + ' '+ status + '"> <button type="button" class="menu-btn"> <span class="menu-text">' + menuData[i].title + '</span> </button>';
         if (menuData[i].submenu != 0)   createMenu(eval(menuData[i].submenu));
         dataForContextMenu += '</li>';
     } 

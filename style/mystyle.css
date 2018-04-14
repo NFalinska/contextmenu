@@ -76,6 +76,23 @@ background-color: #2E3940;
 opacity: .5;
 pointer-events: none;
 }
+.menu-item.disabled .menu-btn {
+cursor: default;
+}
+
+.menu-item.submenu::after{
+content: "";
+position: absolute;
+right: 6px;
+top: 50%;
+-webkit-transform: translateY(-50%);
+transform: translateY(-50%);
+border: 5px solid transparent;
+border-left-color: #808080;
+}
+.menu-item.submenu:hover::after {
+border-left-color: #fff;
+}
 .menu .menu {
 top: 4px;
 left: 99%;
@@ -87,4 +104,7 @@ opacity: 1;
 transform: translate(0, 0) scale(1);
 pointer-events: auto;
 }
-
+.menu-item:hover > .menu {
+-webkit-transition-delay: 100ms;
+transition-delay: 300ms;
+}
